@@ -13,3 +13,7 @@ Incluye:
 
 ## v6.1
 Corrección del visor/modal para evitar pantalla negra inicial.
+
+
+## v6.2
+Corrección visual del catálogo: tarjetas, espaciado, imágenes y textos sin superposición.
