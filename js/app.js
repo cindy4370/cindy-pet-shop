@@ -1,129 +1,29 @@
-const productos = [
-  {
-    id: 1,
-    nombre: "Dog Chow Adulto 20 kg",
-    categoria: "perros",
-    marca: "Dog Chow",
-    precio: 54174,
-    imagen: "https://via.placeholder.com/300x200?text=Dog+Chow"
-  },
-  {
-    id: 2,
-    nombre: "Raza Adulto Carne 20 kg",
-    categoria: "perros",
-    marca: "Raza",
-    precio: 31134,
-    imagen: "https://via.placeholder.com/300x200?text=Raza"
-  },
-  {
-    id: 3,
-    nombre: "Sabrositos Gato Mix 10 kg",
-    categoria: "gatos",
-    marca: "Sabrositos",
-    precio: 21220,
-    imagen: "https://via.placeholder.com/300x200?text=Sabrositos"
-  },
-  {
-    id: 4,
-    nombre: "Old Prince Premium Adulto 20 kg",
-    categoria: "perros",
-    marca: "Old Prince",
-    precio: 46845,
-    imagen: "https://via.placeholder.com/300x200?text=Old+Prince"
-  }
+const productos=[
+{id:1,nombre:"Dog Chow Adulto 20 kg",categoria:"perros",marca:"Dog Chow",precio:54174,imagen:"https://via.placeholder.com/300x200?text=Dog+Chow"},
+{id:2,nombre:"Raza Adulto Carne 20 kg",categoria:"perros",marca:"Raza",precio:31134,imagen:"https://via.placeholder.com/300x200?text=Raza"},
+{id:3,nombre:"Sabrositos Gato Mix 10 kg",categoria:"gatos",marca:"Sabrositos",precio:21220,imagen:"https://via.placeholder.com/300x200?text=Sabrositos"},
+{id:4,nombre:"Old Prince Premium Adulto 20 kg",categoria:"perros",marca:"Old Prince",precio:46845,imagen:"https://via.placeholder.com/300x200?text=Old+Prince"}
 ];
-
-let carrito = [];
-
-const listaProductos = document.getElementById("listaProductos");
-const buscador = document.getElementById("buscador");
-const filtroCategoria = document.getElementById("filtroCategoria");
-const contadorCarrito = document.getElementById("contadorCarrito");
-const carritoPanel = document.getElementById("carrito");
-const itemsCarrito = document.getElementById("itemsCarrito");
-const totalCarrito = document.getElementById("totalCarrito");
-
-function formatoPrecio(valor) {
-  return valor.toLocaleString("es-AR");
+let carrito=[];
+const $=id=>document.getElementById(id);
+function precio(v){return v.toLocaleString("es-AR")}
+function mostrarProductos(){
+ const texto=$("buscador").value.toLowerCase(),cat=$("filtroCategoria").value;
+ const data=productos.filter(p=>(p.nombre.toLowerCase().includes(texto)||p.marca.toLowerCase().includes(texto))&&(cat==="todos"||p.categoria===cat));
+ $("listaProductos").innerHTML=data.map(p=>`<article class="card"><img src="${p.imagen}" alt="${p.nombre}"><h3>${p.nombre}</h3><p>${p.marca}</p><p class="precio">$${precio(p.precio)}</p><button onclick="agregar(${p.id})">Agregar al carrito</button></article>`).join("");
 }
-
-function mostrarProductos() {
-  const texto = buscador.value.toLowerCase();
-  const categoria = filtroCategoria.value;
-
-  const filtrados = productos.filter(p => {
-    const coincideTexto =
-      p.nombre.toLowerCase().includes(texto) ||
-      p.marca.toLowerCase().includes(texto);
-
-    const coincideCategoria = categoria === "todos" || p.categoria === categoria;
-
-    return coincideTexto && coincideCategoria;
-  });
-
-  listaProductos.innerHTML = filtrados.map(p => `
-    <article class="card">
-      <img src="${p.imagen}" alt="${p.nombre}">
-      <h3>${p.nombre}</h3>
-      <p>${p.marca}</p>
-      <p class="precio">$${formatoPrecio(p.precio)}</p>
-      <button onclick="agregarAlCarrito(${p.id})">Agregar al carrito</button>
-    </article>
-  `).join("");
+function agregar(id){const p=productos.find(x=>x.id===id),e=carrito.find(x=>x.id===id);e?e.cantidad++:carrito.push({...p,cantidad:1});actualizar()}
+function actualizar(){
+ $("contadorCarrito").textContent=carrito.reduce((a,i)=>a+i.cantidad,0);
+ $("itemsCarrito").innerHTML=carrito.map(i=>`<div class="item-carrito"><span>${i.nombre} x${i.cantidad}</span><b>$${precio(i.precio*i.cantidad)}</b></div>`).join("");
+ $("totalCarrito").textContent=precio(carrito.reduce((a,i)=>a+i.precio*i.cantidad,0));
 }
-
-function agregarAlCarrito(id) {
-  const producto = productos.find(p => p.id === id);
-  const existente = carrito.find(item => item.id === id);
-
-  if (existente) {
-    existente.cantidad++;
-  } else {
-    carrito.push({ ...producto, cantidad: 1 });
-  }
-
-  actualizarCarrito();
-}
-
-function actualizarCarrito() {
-  contadorCarrito.textContent = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-
-  itemsCarrito.innerHTML = carrito.map(item => `
-    <div class="item-carrito">
-      <span>${item.nombre} x${item.cantidad}</span>
-      <strong>$${formatoPrecio(item.precio * item.cantidad)}</strong>
-    </div>
-  `).join("");
-
-  const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-  totalCarrito.textContent = formatoPrecio(total);
-}
-
-document.getElementById("btnCarrito").addEventListener("click", () => {
-  carritoPanel.classList.remove("oculto");
-});
-
-document.getElementById("cerrarCarrito").addEventListener("click", () => {
-  carritoPanel.classList.add("oculto");
-});
-
-document.getElementById("finalizarPedido").addEventListener("click", () => {
-  if (carrito.length === 0) {
-    alert("El carrito está vacío.");
-    return;
-  }
-
-  const detalle = carrito.map(item =>
-    `- ${item.nombre} x${item.cantidad}: $${formatoPrecio(item.precio * item.cantidad)}`
-  ).join("%0A");
-
-  const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-
-  const mensaje = `Hola Cindy Pet Shop, quiero hacer este pedido:%0A%0A${detalle}%0A%0ATotal: $${formatoPrecio(total)}`;
-  window.open(`https://wa.me/5491150582263?text=${mensaje}`, "_blank");
-});
-
-buscador.addEventListener("input", mostrarProductos);
-filtroCategoria.addEventListener("change", mostrarProductos);
-
-mostrarProductos();
+$("btnCarrito").onclick=()=>$("carrito").classList.remove("oculto");
+$("cerrarCarrito").onclick=()=>$("carrito").classList.add("oculto");
+$("finalizarPedido").onclick=()=>{
+ if(!carrito.length){alert("El carrito está vacío.");return}
+ const detalle=carrito.map(i=>`- ${i.nombre} x${i.cantidad}: $${precio(i.precio*i.cantidad)}`).join("%0A");
+ const total=carrito.reduce((a,i)=>a+i.precio*i.cantidad,0);
+ window.open(`https://wa.me/5491168723777?text=Hola%20Cindy%20Pet%20Shop,%20quiero%20hacer%20este%20pedido:%0A%0A${detalle}%0A%0ATotal:%20$${precio(total)}`,"_blank");
+};
+$("buscador").oninput=mostrarProductos;$("filtroCategoria").onchange=mostrarProductos;mostrarProductos();

@@ -7,56 +7,73 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="header">
-    <div class="logo">🐾 Cindy Pet Shop</div>
-    <nav>
-      <a href="#productos">Productos</a>
-      <a href="#ofertas">Ofertas</a>
-      <a href="#contacto">Contacto</a>
-      <button id="btnCarrito">🛒 <span id="contadorCarrito">0</span></button>
-    </nav>
-  </header>
+<header class="header">
+  <div class="brand">
+    <img src="img/logo-cindy.jpg" alt="Logo Cindy Pet Shop">
+    <strong>Cindy Pet Shop</strong>
+  </div>
+  <nav>
+    <a href="#productos">Productos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+    <button id="btnCarrito">🛒 <span id="contadorCarrito">0</span></button>
+  </nav>
+</header>
 
-  <section class="hero">
-    <div>
-      <h1>Todo para tu mascota</h1>
-      <p>Alimentos, accesorios, juguetes y entregas a domicilio.</p>
-      <p><strong>José C. Paz, San Miguel, Grand Bourg y alrededores.</strong></p>
-      <a class="btn" href="#productos">Ver productos</a>
-    </div>
+<section class="hero">
+  <div class="hero-text">
+    <span class="badge">🐾 Alimentos · Accesorios · Traslados</span>
+    <h1>Todo para tu mascota</h1>
+    <p>Entregas a domicilio y traslado de mascotas en José C. Paz, San Miguel, Grand Bourg y alrededores.</p>
+    <a class="btn" href="#productos">Ver productos</a>
+    <a class="btn secondary" href="https://wa.me/5491168723777?text=Hola%20Cindy%20Pet%20Shop.%20Quisiera%20consultar%20por%20un%20producto." target="_blank">Consultar por WhatsApp</a>
+  </div>
+  <img class="hero-logo" src="img/logo-cindy.jpg" alt="Cindy Pet Shop">
+</section>
+
+<main>
+  <section id="servicios" class="servicios">
+    <article>🐶 Alimentos para perros</article>
+    <article>🐱 Alimentos para gatos</article>
+    <article>🎾 Accesorios y juguetes</article>
+    <article>🚚 Entregas a domicilio</article>
+    <article>🐾 Traslado de mascotas</article>
   </section>
 
-  <main>
-    <section class="busqueda">
-      <input type="text" id="buscador" placeholder="Buscar alimento, marca o producto..." />
-      <select id="filtroCategoria">
-        <option value="todos">Todas las categorías</option>
-        <option value="perros">Perros</option>
-        <option value="gatos">Gatos</option>
-        <option value="accesorios">Accesorios</option>
-      </select>
-    </section>
+  <section class="busqueda">
+    <input type="text" id="buscador" placeholder="Buscar alimento, marca o producto..." />
+    <select id="filtroCategoria">
+      <option value="todos">Todas las categorías</option>
+      <option value="perros">Perros</option>
+      <option value="gatos">Gatos</option>
+      <option value="accesorios">Accesorios</option>
+    </select>
+  </section>
 
-    <section id="productos">
-      <h2>Productos destacados</h2>
-      <div id="listaProductos" class="grid"></div>
-    </section>
-  </main>
+  <section id="productos">
+    <h2>Productos destacados</h2>
+    <div id="listaProductos" class="grid"></div>
+  </section>
+</main>
 
-  <aside id="carrito" class="carrito oculto">
-    <h2>Carrito</h2>
-    <div id="itemsCarrito"></div>
-    <h3>Total: $<span id="totalCarrito">0</span></h3>
-    <button id="finalizarPedido">Finalizar por WhatsApp</button>
-    <button id="cerrarCarrito" class="secundario">Cerrar</button>
-  </aside>
+<aside id="carrito" class="carrito oculto">
+  <h2>Carrito</h2>
+  <div id="itemsCarrito"></div>
+  <h3>Total: $<span id="totalCarrito">0</span></h3>
+  <button id="finalizarPedido">Finalizar por WhatsApp</button>
+  <button id="cerrarCarrito" class="secondary full">Cerrar</button>
+</aside>
 
-  <a class="whatsapp" href="https://wa.me/5491150582263" target="_blank">💬</a>
+<a class="whatsapp" href="https://wa.me/5491168723777?text=Hola%20Cindy%20Pet%20Shop.%20Quisiera%20consultar%20por%20un%20producto." target="_blank">💬</a>
 
-  <footer id="contacto">
-    <p>Cindy Pet Shop · Pedidos por WhatsApp · Pagás al recibir</p>
-  </footer>
+<footer id="contacto">
+  <h3>Cindy Pet Shop</h3>
+  <p>📱 WhatsApp: 11-6872-3777</p>
+  <p>📷 Instagram: @cindypetshop.oficial</p>
+  <p>📘 Facebook: Cindy Pet Shop</p>
+  <p>✉️ cindypetshop1975@gmail.com</p>
+</footer>
 
-  <script src="js/app.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
