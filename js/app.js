@@ -687,3 +687,21 @@ filtroMarca.onchange = renderProductos;
 initMarcas();
 renderProductos();
 renderCarrito();
+
+
+// Corrección v6.1: cerrar visor al iniciar y permitir Escape
+window.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modalImg");
+  if (modal) modal.classList.add("hidden");
+  if (modalImg) modalImg.removeAttribute("src");
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    const modal = document.getElementById("modal");
+    const cart = document.getElementById("carrito");
+    if (modal) modal.classList.add("hidden");
+    if (cart) cart.classList.add("hidden");
+  }
+});

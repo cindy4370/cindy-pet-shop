@@ -9,3 +9,7 @@ Incluye:
 - carrito con pedido por WhatsApp
 - favoritos en navegador
 - secciones de servicios, envíos, pagos, FAQ y contacto
+
+
+## v6.1
+Corrección del visor/modal para evitar pantalla negra inicial.
