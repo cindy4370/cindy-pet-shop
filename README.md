@@ -1,19 +1,10 @@
-# Cindy Pet Shop - Versión 6
+# Cindy Pet Shop V7
 
-Tienda online estática para GitHub Pages.
+Catálogo reconstruido desde cero.
 
-Incluye:
-- catálogo real con imágenes subidas
-- filtros por categoría y marca
-- buscador
-- carrito con pedido por WhatsApp
-- favoritos en navegador
-- secciones de servicios, envíos, pagos, FAQ y contacto
-
-
-## v6.1
-Corrección del visor/modal para evitar pantalla negra inicial.
-
-
-## v6.2
-Corrección visual del catálogo: tarjetas, espaciado, imágenes y textos sin superposición.
+Correcciones:
+- imagen, producto, marca, precio y categoría correctamente vinculados
+- filtros reales: Perros, Gatos, Higiene, Veterinaria y Accesorios
+- carrito por WhatsApp
+- favoritos
+- sin productos mezclados

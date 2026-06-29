@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cindy Pet Shop | Tienda online</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header class="topbar">
   <div class="brand">
     <img src="img/logo-cindy.jpg" alt="Cindy Pet Shop">
-    <div>
-      <strong>Cindy Pet Shop</strong>
-      <small>Todo para tu mascota</small>
-    </div>
+    <div><strong>Cindy Pet Shop</strong><small>Todo para tu mascota</small></div>
   </div>
   <nav>
     <a href="#inicio">Inicio</a>
@@ -27,150 +24,104 @@
 
 <section id="inicio" class="hero">
   <div class="hero-card">
-    <div class="hero-text">
+    <div>
       <span class="badge">🐾 Tienda online · pagás al recibir</span>
       <h1>Todo para tu mascota, directo a tu casa</h1>
-      <p>Alimentos, accesorios, juguetes, higiene, antiparasitarios, entregas a domicilio y traslado de mascotas.</p>
-      <div class="hero-actions">
-        <a class="btn" href="#catalogo">Ver catálogo</a>
-        <a class="btn secondary" target="_blank" href="https://wa.me/5491168723777?text=Hola%20Cindy%20Pet%20Shop.%20Quisiera%20hacer%20una%20consulta.">WhatsApp</a>
-      </div>
+      <p>Alimentos, accesorios, higiene, antiparasitarios, entregas a domicilio y traslado de mascotas.</p>
+      <a class="btn" href="#catalogo">Ver productos</a>
+      <a class="btn blue" target="_blank" href="https://wa.me/5491168723777?text=Hola%20Cindy%20Pet%20Shop.%20Quisiera%20hacer%20una%20consulta.">WhatsApp</a>
     </div>
-    <img class="hero-logo" src="img/logo-cindy.jpg" alt="Logo Cindy">
+    <img src="img/logo-cindy.jpg" alt="Logo Cindy" class="hero-logo">
   </div>
 </section>
 
 <main>
-  <section class="trust">
-    <article>🚚 Envíos sin cargo<br><span>Zona Norte, Zona Oeste y CABA</span></article>
-    <article>💵 Pagás al recibir<br><span>Efectivo, transferencia, Mercado Pago y tarjetas</span></article>
-    <article>🕒 Atención<br><span>Lunes a sábado de 9 a 19 hs</span></article>
-    <article>🐾 Turnos<br><span>Baño, uñas y peluquería programada</span></article>
-  </section>
+<section class="trust">
+  <article>🚚 <b>Envíos sin cargo</b><span>Zona Norte, Zona Oeste y CABA</span></article>
+  <article>💵 <b>Pagás al recibir</b><span>Efectivo, transferencia, Mercado Pago y tarjetas</span></article>
+  <article>🕒 <b>Atención</b><span>Lunes a sábado de 9 a 19 hs</span></article>
+  <article>✂️ <b>Turnos</b><span>Baño, uñas y peluquería programada</span></article>
+</section>
 
-  <section id="servicios" class="section">
-    <h2>Servicios</h2>
-    <div class="service-grid">
-      <article>🐶 Alimentos para perros</article>
-      <article>🐱 Alimentos para gatos</article>
-      <article>🎾 Accesorios y juguetes</article>
-      <article>🪵 Arenas y colchones sanitarios</article>
-      <article>🧴 Antiparasitarios</article>
-      <article>🚚 Entregas a domicilio</article>
-      <article>🚕 Traslado de mascotas</article>
-      <article>✂️ Baño, uñas y peluquería con turno</article>
+<section id="catalogo" class="section">
+  <div class="section-head">
+    <div>
+      <h2>Catálogo</h2>
+      <p>Productos organizados correctamente por categoría.</p>
     </div>
-  </section>
+    <span id="totalProductos" class="counter"></span>
+  </div>
 
-  <section id="catalogo" class="section">
-    <div class="section-head">
-      <div>
-        <h2>Catálogo Cindy Pet Shop</h2>
-        <p>Productos reales con fotos, precios y consulta directa por WhatsApp.</p>
-      </div>
-      <span id="totalProductos" class="counter"></span>
-    </div>
+  <div class="filters">
+    <input id="buscador" type="search" placeholder="Buscar producto, marca, peso o categoría...">
+    <select id="filtroCategoria">
+      <option value="Todos">Todas las categorías</option>
+      <option value="Perros">Perros</option>
+      <option value="Gatos">Gatos</option>
+      <option value="Higiene">Higiene</option>
+      <option value="Veterinaria">Veterinaria</option>
+      <option value="Accesorios">Accesorios</option>
+    </select>
+    <select id="filtroMarca"><option value="Todos">Todas las marcas</option></select>
+  </div>
 
-    <div class="filters">
-      <input id="buscador" type="search" placeholder="Buscar por marca, producto, peso o categoría...">
-      <select id="filtroCategoria">
-        <option value="todos">Todas las categorías</option>
-        <option value="Alimento perro">Alimento perro</option>
-        <option value="Alimento cachorro">Alimento cachorro</option>
-        <option value="Alimento gato">Alimento gato</option>
-        <option value="Arena sanitaria">Arena sanitaria</option>
-        <option value="Colchón sanitario">Colchón sanitario</option>
-        <option value="Granulado higiénico">Granulado higiénico</option>
-        <option value="Antiparasitario">Antiparasitario</option>
-        <option value="Accesorios">Accesorios</option>
-      </select>
-      <select id="filtroMarca">
-        <option value="todos">Todas las marcas</option>
-      </select>
-    </div>
+  <div class="chips">
+    <button data-cat="Todos">Todo</button>
+    <button data-cat="Perros">Perros</button>
+    <button data-cat="Gatos">Gatos</button>
+    <button data-cat="Higiene">Higiene</button>
+    <button data-cat="Veterinaria">Veterinaria</button>
+    <button data-cat="Accesorios">Accesorios</button>
+  </div>
 
-    <div class="quick-cats">
-      <button onclick="setCategoria('todos')">Todo</button>
-      <button onclick="setCategoria('Alimento perro')">Perros</button>
-      <button onclick="setCategoria('Alimento cachorro')">Cachorros</button>
-      <button onclick="setCategoria('Alimento gato')">Gatos</button>
-      <button onclick="setCategoria('Colchón sanitario')">Higiene</button>
-      <button onclick="setCategoria('Antiparasitario')">Salud</button>
-      <button onclick="setCategoria('Accesorios')">Accesorios</button>
-    </div>
+  <div id="listaProductos" class="product-grid"></div>
+</section>
 
-    <div id="listaProductos" class="product-grid"></div>
-  </section>
+<section id="servicios" class="section">
+  <h2>Servicios</h2>
+  <div class="service-grid">
+    <article>🐶 Alimentos para perros</article>
+    <article>🐱 Alimentos para gatos</article>
+    <article>🪵 Arenas y colchones sanitarios</article>
+    <article>🧴 Antiparasitarios</article>
+    <article>🎾 Accesorios y juguetes</article>
+    <article>🚚 Entregas a domicilio</article>
+    <article>🚕 Traslado de mascotas</article>
+    <article>✂️ Baño, corte de uñas y peluquería con turno</article>
+  </div>
+</section>
 
-  <section id="envios" class="section info-grid">
-    <article>
-      <h2>Envíos</h2>
-      <p><b>Sin cargo</b> a Zona Norte, Zona Oeste y CABA.</p>
-      <p>También entregamos en otras zonas con un recargo mínimo según distancia.</p>
-      <p>Trabajamos solo con entregas a domicilio.</p>
-    </article>
-    <article>
-      <h2>Formas de pago</h2>
-      <p>Podés pagar al recibir el producto.</p>
-      <p>Aceptamos efectivo, transferencia, Mercado Pago y tarjetas.</p>
-    </article>
-    <article>
-      <h2>Horarios</h2>
-      <p>Lunes a sábado de <b>9 a 19 hs</b>.</p>
-      <p>Consultas y pedidos por WhatsApp.</p>
-    </article>
-  </section>
-
-  <section class="section why">
-    <h2>¿Por qué elegir Cindy Pet Shop?</h2>
-    <div class="why-grid">
-      <article>❤️ Atención personalizada</article>
-      <article>📦 Productos seleccionados</article>
-      <article>🚚 Entrega rápida</article>
-      <article>💳 Pagás al recibir</article>
-      <article>🐾 Traslado de mascotas</article>
-      <article>⭐ Promos semanales</article>
-    </div>
-  </section>
-
-  <section class="section faq">
-    <h2>Preguntas frecuentes</h2>
-    <details open><summary>¿Tienen local físico?</summary><p>No. Trabajamos solo con entregas a domicilio.</p></details>
-    <details><summary>¿Cuándo se paga?</summary><p>El pago se realiza al recibir el producto.</p></details>
-    <details><summary>¿Qué zonas cubren?</summary><p>Zona Norte, Zona Oeste y CABA sin cargo. Otras zonas con recargo mínimo.</p></details>
-    <details><summary>¿Hacen baño y peluquería?</summary><p>Sí, baño, corte de uñas y peluquería con turno programado.</p></details>
-  </section>
+<section id="envios" class="section info-grid">
+  <article><h2>Envíos</h2><p>Sin cargo a Zona Norte, Zona Oeste y CABA. Otras zonas con recargo mínimo.</p></article>
+  <article><h2>Pago</h2><p>Pagás al recibir. Aceptamos efectivo, transferencia, Mercado Pago y tarjetas.</p></article>
+  <article><h2>Horario</h2><p>Lunes a sábado de 9 a 19 hs.</p></article>
+</section>
 </main>
 
 <aside id="carrito" class="cart hidden">
-  <div class="cart-head">
-    <h2>Carrito</h2>
-    <button id="cerrarCarrito">✕</button>
-  </div>
+  <div class="cart-head"><h2>Carrito</h2><button id="cerrarCarrito">✕</button></div>
   <div id="itemsCarrito"></div>
-  <p class="cart-note">El pedido se confirma por WhatsApp. Stock sujeto a confirmación.</p>
   <button id="finalizarPedido" class="btn full">Finalizar por WhatsApp</button>
-  <button id="vaciarCarrito" class="btn danger full">Vaciar carrito</button>
+  <button id="vaciarCarrito" class="btn danger full">Vaciar</button>
 </aside>
 
 <footer id="contacto">
   <img src="img/logo-cindy.jpg" alt="Cindy Pet Shop">
   <h2>Cindy Pet Shop</h2>
-  <p>📱 WhatsApp: 11-6872-3777</p>
-  <p>📷 Instagram: @cindypetshop.oficial</p>
-  <p>📘 Facebook: Cindy Pet Shop</p>
-  <p>✉️ cindypetshop1975@gmail.com</p>
-  <p>🕒 Lunes a sábado de 9 a 19 hs</p>
+  <p>WhatsApp: 11-6872-3777</p>
+  <p>Instagram: @cindypetshop.oficial</p>
+  <p>Facebook: Cindy Pet Shop</p>
+  <p>Correo: cindypetshop1975@gmail.com</p>
 </footer>
 
 <div class="floating">
-  <a class="call" href="tel:+541168723777">📞</a>
-  <a class="wa" target="_blank" href="https://wa.me/5491168723777?text=Hola%20Cindy%20Pet%20Shop.%20Quisiera%20hacer%20una%20consulta.">💬</a>
+  <a href="tel:+541168723777" class="call">📞</a>
+  <a target="_blank" class="wa" href="https://wa.me/5491168723777?text=Hola%20Cindy%20Pet%20Shop.%20Quisiera%20hacer%20una%20consulta.">💬</a>
 </div>
 
 <div id="modal" class="modal hidden">
   <button id="cerrarModal">✕</button>
-  <img id="modalImg" src="" alt="Producto">
+  <img id="modalImg" alt="Producto">
 </div>
 
 <script src="js/app.js"></script>
