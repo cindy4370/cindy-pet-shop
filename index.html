@@ -13,8 +13,8 @@
     <strong>Cindy Pet Shop</strong>
   </div>
   <nav>
-    <a href="#productos">Productos</a>
     <a href="#servicios">Servicios</a>
+    <a href="#catalogo">Catálogo</a>
     <a href="#contacto">Contacto</a>
     <button id="btnCarrito">🛒 <span id="contadorCarrito">0</span></button>
   </nav>
@@ -27,7 +27,7 @@
       <h1>Todo para tu mascota</h1>
       <p>Alimentos, accesorios, juguetes, entregas a domicilio y traslado de mascotas.</p>
       <p><b>José C. Paz · San Miguel · Grand Bourg y alrededores</b></p>
-      <a class="btn" href="#productos">Ver productos</a>
+      <a class="btn" href="#catalogo">Ver catálogo</a>
       <a class="btn secondary" href="https://wa.me/5491168723777?text=Hola%20Cindy%20Pet%20Shop.%20Quisiera%20consultar%20por%20un%20producto." target="_blank">WhatsApp</a>
     </div>
     <div class="hero-mini-logo">
@@ -45,27 +45,17 @@
     <article>🐾 Traslado de mascotas</article>
   </section>
 
-  <section class="busqueda">
-    <input type="text" id="buscador" placeholder="Buscar alimento, marca o producto..." />
-    <select id="filtroCategoria">
-      <option value="todos">Todas las categorías</option>
-      <option value="perros">Perros</option>
-      <option value="gatos">Gatos</option>
-      <option value="accesorios">Accesorios</option>
-    </select>
-  </section>
-
-  <section id="productos">
-    <h2>Productos destacados</h2>
-    <div id="listaProductos" class="grid"></div>
+  <section id="catalogo" class="catalogo-vacio">
+    <h2>Catálogo</h2>
+    <p>Muy pronto vamos a cargar los productos reales de Cindy Pet Shop con fotos, precios y stock.</p>
+    <p>Por ahora podés consultar por WhatsApp.</p>
+    <a class="btn" href="https://wa.me/5491168723777?text=Hola%20Cindy%20Pet%20Shop.%20Quisiera%20consultar%20por%20productos%20disponibles." target="_blank">Consultar productos</a>
   </section>
 </main>
 
 <aside id="carrito" class="carrito oculto">
   <h2>Carrito</h2>
-  <div id="itemsCarrito"></div>
-  <h3>Total: $<span id="totalCarrito">0</span></h3>
-  <button id="finalizarPedido">Finalizar por WhatsApp</button>
+  <p>El carrito quedará activo cuando carguemos productos reales.</p>
   <button id="cerrarCarrito" class="secondary full">Cerrar</button>
 </aside>
 
